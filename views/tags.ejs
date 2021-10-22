@@ -1,0 +1,33 @@
+<h1>Tags</h1>
+<div class="row my-4">
+    <div class="col-lg-4">
+        <form action="/tags" method="post">
+            <div class="mb-3">
+              <label for="name" class="form-label">Title</label>
+              <input type="text" class="form-control" name="name" id="name">
+            </div>
+            <div class="mb-3">
+                <label for="slug" class="form-label">Slug</label>
+                <input type="text" class="form-control" name="slug" id="slug">
+            </div>
+            <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <input type="text" class="form-control" name="desc" id="desc">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>        
+
+            <div class="list-group my-4">
+                <% data.forEach(tags => { %>
+                    <div class="list-group-item list-group-item-action mb-2 d-flex justify-content-between">
+                        <%- tags.name %> 
+                        <div class="d-flex justify-content-between">
+                            <a href="/show/<%- tags.id %> " class="badge bg-primary"><i class="bi bi-eye"></i></a>
+                            <a href="/delete/<%- tags.id %> " class="badge bg-danger"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+
+    </div>
+</div>
